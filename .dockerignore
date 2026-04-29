@@ -1,6 +1,10 @@
 .venv
+.env
+.env.*
 __pycache__
 .pytest_cache
+data
+logs
 data/logs
 data/notifications
 *.db
