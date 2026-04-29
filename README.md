@@ -1,5 +1,9 @@
 # Crypto AI AutoTrading
 
+[![CI](https://github.com/lidonganyp/Crypto_AI_AutoTrading/actions/workflows/ci.yml/badge.svg)](https://github.com/lidonganyp/Crypto_AI_AutoTrading/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+
 Crypto AI AutoTrading 是一个面向加密货币市场的 AI 辅助量化交易系统。项目集成了行情采集、特征工程、XGBoost 预测、LLM 辅助研究、风险控制、纸面交易、受保护的实盘执行、回测、走步验证、运行监控和 Streamlit 仪表盘。
 
 本项目更适合作为量化交易系统工程、策略研究、风控流程和自动化运维的开源参考，不应被理解为“自动盈利”工具。
@@ -201,9 +205,11 @@ python -m compileall -q analysis backtest config core execution learning monitor
 - 对风险控制、实盘行为或数据结构变更的影响说明。
 - 对应测试或验证命令结果。
 
+详细流程见 [CONTRIBUTING.md](./CONTRIBUTING.md)。如果发现凭据泄露、实盘绕过或资金安全相关问题，请先阅读 [SECURITY.md](./SECURITY.md)，不要在公开 Issue 中披露可利用细节。
+
 ## 许可证
 
-当前仓库尚未添加开源许可证文件。正式开源前建议添加 `LICENSE`，例如 MIT、Apache-2.0 或 GPL-3.0。没有许可证时，默认并不等于允许他人自由复制、修改和分发。
+本项目基于 [MIT License](./LICENSE) 开源。
 
 ## 免责声明
 
