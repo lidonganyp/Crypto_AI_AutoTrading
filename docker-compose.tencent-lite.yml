@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  cryptoai-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cryptoai-engine
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      LOW_RESOURCE_MODE: "true"
+      RUNTIME_MODE: "paper"
+      ALLOW_LIVE_ORDERS: "false"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+    volumes:
+      - ./data:/app/data
+    command: ["python", "main.py", "daemon"]
+    mem_limit: 2300m
+    cpus: 1.50
+
+  cryptoai-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cryptoai-dashboard
+    restart: unless-stopped
+    profiles: ["dashboard"]
+    env_file:
+      - .env
+    environment:
+      LOW_RESOURCE_MODE: "true"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "127.0.0.1:8501:8501"
+    command: ["streamlit", "run", "dashboard.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    mem_limit: 900m
+    cpus: 0.50

@@ -1,0 +1,12 @@
+[Unit]
+Description=CryptoAI NextGen Portfolio Refresh
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/lidong/lidong/CryptoAI
+ExecStart=/home/lidong/lidong/CryptoAI/scripts/nextgen_portfolio_refresh.sh
+
+[Install]
+WantedBy=default.target
